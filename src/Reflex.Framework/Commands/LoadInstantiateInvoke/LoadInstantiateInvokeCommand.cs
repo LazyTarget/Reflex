@@ -1,8 +1,10 @@
 ﻿using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Reflex.Framework.Abstractions.Attributes;
 
 namespace Reflex.Framework.Commands.LoadInstantiateInvoke
 {
+	[Command]
 	public class LoadInstantiateInvokeCommand
 	{
 		private readonly ILogger<LoadInstantiateInvokeCommand> _logger;

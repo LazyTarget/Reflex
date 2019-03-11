@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Reflex.Framework.Interfaces
+namespace Reflex.Framework.Abstractions.Interfaces
 {
 	public interface IAssemblyLoader
 	{

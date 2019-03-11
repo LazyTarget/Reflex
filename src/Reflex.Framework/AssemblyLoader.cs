@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
-using Reflex.Framework.Interfaces;
+using Reflex.Framework.Abstractions.Interfaces;
 
 namespace Reflex.Framework
 {
