@@ -106,7 +106,7 @@ namespace Reflex.Browser
 			catch (Exception ex)
 			{
 				Log($"Exception was thrown!");
-				Log(ex);
+				Log(ex, LogLevel.Error);
 			}
 
 			if (Environment.UserInteractive)
@@ -116,9 +116,9 @@ namespace Reflex.Browser
 			}
 		}
 
-		private static void Log(object message, bool format = true)
+		private static void Log(object message, LogLevel? logLevel = null, bool format = true)
 		{
-			_logHelper.Log(message, format: format);
+			_logHelper.Log(message, logLevel: logLevel, format: format);
 		}
 
 		private static string GetInputArg(string message, Func<string, bool> validate = null)
