@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netfx", "netfx", "{58C0499C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netcore", "netcore", "{73F7B677-1B97-4CC9-91B9-8C4C185AA12C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflex.CLI-netfx", "Reflex.CLI-netfx\Reflex.CLI-netfx.csproj", "{2C484B5C-40CB-4780-B401-F91D596F4448}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{D8826834-4407-4C86-BB47-37A628D0FBFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8826834-4407-4C86-BB47-37A628D0FBFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8826834-4407-4C86-BB47-37A628D0FBFA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C484B5C-40CB-4780-B401-F91D596F4448}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C484B5C-40CB-4780-B401-F91D596F4448}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C484B5C-40CB-4780-B401-F91D596F4448}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C484B5C-40CB-4780-B401-F91D596F4448}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -47,6 +53,7 @@ Global
 		{D8826834-4407-4C86-BB47-37A628D0FBFA} = {F1955007-5AC3-49FA-927C-057515242238}
 		{58C0499C-B3E3-428E-A0C1-D18D92AC7381} = {7E932BCF-D455-4B78-BA37-15B5197D0E8E}
 		{73F7B677-1B97-4CC9-91B9-8C4C185AA12C} = {7E932BCF-D455-4B78-BA37-15B5197D0E8E}
+		{2C484B5C-40CB-4780-B401-F91D596F4448} = {58C0499C-B3E3-428E-A0C1-D18D92AC7381}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D6C4946-7C0E-4748-A092-FABAF33F790B}
