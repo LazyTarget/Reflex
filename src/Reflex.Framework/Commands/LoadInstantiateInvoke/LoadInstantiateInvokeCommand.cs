@@ -4,7 +4,8 @@ using Reflex.Framework.Abstractions.Attributes;
 
 namespace Reflex.Framework.Commands.LoadInstantiateInvoke
 {
-	[Command]
+	[Command("lii")]
+	[Command("LoadInstantiateInvoke")]
 	public class LoadInstantiateInvokeCommand
 	{
 		private readonly ILogger<LoadInstantiateInvokeCommand> _logger;
