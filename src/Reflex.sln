@@ -9,6 +9,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflex.Browser.netfx", "Ref
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reflex.Framework", "Reflex.Framework\Reflex.Framework.csproj", "{D8826834-4407-4C86-BB47-37A628D0FBFA}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Run", "Run", "{7E932BCF-D455-4B78-BA37-15B5197D0E8E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{4B695C2E-4D91-42A8-9487-406175D04894}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{F1955007-5AC3-49FA-927C-057515242238}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netfx", "netfx", "{58C0499C-B3E3-428E-A0C1-D18D92AC7381}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netcore", "netcore", "{73F7B677-1B97-4CC9-91B9-8C4C185AA12C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +40,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9411BF4C-AEC9-4829-91EE-6F2550810B83} = {73F7B677-1B97-4CC9-91B9-8C4C185AA12C}
+		{AAC05718-75F4-4D03-856F-814E4484C2E0} = {58C0499C-B3E3-428E-A0C1-D18D92AC7381}
+		{D8826834-4407-4C86-BB47-37A628D0FBFA} = {F1955007-5AC3-49FA-927C-057515242238}
+		{58C0499C-B3E3-428E-A0C1-D18D92AC7381} = {7E932BCF-D455-4B78-BA37-15B5197D0E8E}
+		{73F7B677-1B97-4CC9-91B9-8C4C185AA12C} = {7E932BCF-D455-4B78-BA37-15B5197D0E8E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7D6C4946-7C0E-4748-A092-FABAF33F790B}
