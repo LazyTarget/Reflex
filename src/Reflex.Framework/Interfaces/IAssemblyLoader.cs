@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace Reflex.Browser
+namespace Reflex.Framework.Interfaces
 {
 	public interface IAssemblyLoader
 	{

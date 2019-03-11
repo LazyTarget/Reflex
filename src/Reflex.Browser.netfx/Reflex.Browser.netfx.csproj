@@ -99,15 +99,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\Reflex.Browser\AssemblyLoader.cs">
-      <Link>AssemblyLoader.cs</Link>
-    </Compile>
-    <Compile Include="..\Reflex.Browser\IAssemblyLoader.cs">
-      <Link>IAssemblyLoader.cs</Link>
-    </Compile>
-    <Compile Include="..\Reflex.Browser\LogHelper.cs">
-      <Link>LogHelper.cs</Link>
-    </Compile>
     <Compile Include="..\Reflex.Browser\Program.cs">
       <Link>Program.cs</Link>
     </Compile>
@@ -116,6 +107,12 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Reflex.Framework\Reflex.Framework.csproj">
+      <Project>{d8826834-4407-4c86-bb47-37a628d0fbfa}</Project>
+      <Name>Reflex.Framework</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

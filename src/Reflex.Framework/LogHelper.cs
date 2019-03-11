@@ -4,7 +4,7 @@ using System.IO;
 using System.Reflection;
 using Microsoft.Extensions.Logging;
 
-namespace Reflex.Browser
+namespace Reflex.Framework
 {
 	public class LogHelper
 	{

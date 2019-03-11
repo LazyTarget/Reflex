@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Text;
+using Reflex.Framework.Interfaces;
 
-namespace Reflex.Browser
+namespace Reflex.Framework
 {
 	public class AssemblyFileLoader : IAssemblyLoader
 	{
