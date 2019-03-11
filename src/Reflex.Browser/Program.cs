@@ -35,19 +35,32 @@ namespace Reflex.Browser
 				Log($"FilePath: {filePath}");
 				Log($"TypeName: {typename}");
 
+				Type type;
+				if (!string.IsNullOrWhiteSpace(filePath))
+				{
+					AppDomain domain = null;
+#if !NETCOREAPP
+					domain = AppDomain.CreateDomain("LOADER");
+#endif
 
-				var loader = new AssemblyFileLoader();
+					var loader = new AssemblyFileLoader(domain);
+					Log("Loading assembly...");
+					var assembly = loader.Load(filePath);
+					Log(assembly);
 
-				Log("Loading assembly...");
-				var assembly = loader.Load(filePath);
-				Log(assembly);
+					var definedTypes = assembly.DefinedTypes;
+					Log($"Defined types: {definedTypes?.Count()}");
 
-				var definedTypes = assembly.DefinedTypes;
-				Log($"Defined types: {definedTypes?.Count()}");
-
-				Log("Getting type...");
-				var type = assembly.GetType(typename, true);
-				Log(type);
+					Log("Getting type...");
+					type = assembly.GetType(typename, true, true);
+					Log(type);
+				}
+				else
+				{
+					Log("Getting type...");
+					type = Type.GetType(typename, true, true);
+					Log(type);
+				}
 
 
 				Log("Creating instance...");

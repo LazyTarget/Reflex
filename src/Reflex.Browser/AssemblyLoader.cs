@@ -8,10 +8,27 @@ namespace Reflex.Browser
 {
 	public class AssemblyFileLoader : IAssemblyLoader
 	{
+		private readonly AppDomain _domain;
+
+		public AssemblyFileLoader(AppDomain domain)
+		{
+			_domain = domain;
+		}
+
+
 		public Assembly Load(string filePath)
 		{
-			//var assembly = Assembly.LoadFile(filePath);
-			var assembly = Assembly.LoadFrom(filePath);
+			Assembly assembly;
+			if (_domain == null)
+			{
+				//var assembly = Assembly.LoadFile(filePath);
+				assembly = Assembly.LoadFrom(filePath);
+			}
+			else
+			{
+				var assemblyName = AssemblyName.GetAssemblyName(filePath);
+				assembly = _domain.Load(assemblyName);
+			}
 			return assembly;
 		}
 	}
