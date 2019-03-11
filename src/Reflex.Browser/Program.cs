@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace Reflex.Browser
 {
-	class Program
+	public static class Program
 	{
 		private static readonly Assembly REFLEX_ASSEMBLY;
 		private static readonly LogHelper _logHelper;
@@ -18,7 +18,7 @@ namespace Reflex.Browser
 			_logHelper = new LogHelper();
 		}
 
-		static void Main(string[] args)
+		public static void Main(string[] args)
 		{
 			var argsSupplied = args != null && args.Length > 0;
 			if (!argsSupplied)
@@ -40,7 +40,7 @@ namespace Reflex.Browser
 				{
 					AppDomain domain = null;
 #if !NETCOREAPP
-					domain = AppDomain.CreateDomain("LOADER");
+					//domain = AppDomain.CreateDomain("LOADER");
 #endif
 
 					var loader = new AssemblyFileLoader(domain);
@@ -65,7 +65,10 @@ namespace Reflex.Browser
 
 				Log("Creating instance...");
 				var instance = Activator.CreateInstance(type);
-				Log(instance);
+				var instanceStr = instance?.ToString();
+				if (instanceStr == type.FullName)
+					instanceStr = $"[{type.FullName}]";
+				Log(instanceStr);
 			}
 			catch (Exception ex)
 			{

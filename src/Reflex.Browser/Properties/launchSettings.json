@@ -2,7 +2,7 @@
   "profiles": {
     "Reflex.Browser": {
       "commandName": "Project",
-      "commandLineArgs": "\"C:\\Work\\Agria\\Repos\\Agria-se\\src\\Agria.Tests.Unit\\bin\\Local\\Agria.Tests.Unit.dll\" \"Agria.Tests.Unit.Infrastracture.Mappers.ApiProfileSpecification.when_mapping_content_item\"",
+      "commandLineArgs": "\"C:\\Work\\Agria\\Repos\\Agria-se\\src\\Agria.Tests.Unit\\bin\\Local\\Agria.Tests.Unit.dll\" \"Agria.Tests.Unit.Infrastracture.Mappers.ApiProfileSpecification+when_mapping_content_item\"",
       "workingDirectory": "C:\\Work\\Agria\\Repos\\Agria-se\\src\\Agria.Tests.Unit\\bin\\Local"
     }
   }
