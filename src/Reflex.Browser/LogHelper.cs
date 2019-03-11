@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.IO;
+using System.Reflection;
 
 namespace Reflex.Browser
 {
@@ -25,6 +26,19 @@ namespace Reflex.Browser
 				if (ex is FileNotFoundException fileNotFound)
 				{
 					Log($"{ext} at fileName: {fileNotFound.FileName}");
+				}
+				if (ex is ReflectionTypeLoadException reflectionTypeLoad)
+				{
+					Log($"{ext} with types: {reflectionTypeLoad.Types.Length}");
+
+					Log($"LoaderExceptions :: {reflectionTypeLoad.LoaderExceptions.Length}");
+					for (var i = 0; i < reflectionTypeLoad.LoaderExceptions.Length; i++)
+					{
+						var loadEx = reflectionTypeLoad.LoaderExceptions[i];
+						Log($"LoadExc {i + 1}/{reflectionTypeLoad.LoaderExceptions.Length} :BEGIN:");
+						Log(loadEx);
+						Log($"LoadExc {i + 1}/{reflectionTypeLoad.LoaderExceptions.Length} :END:");
+					}
 				}
 
 				if (ex is AggregateException agg)

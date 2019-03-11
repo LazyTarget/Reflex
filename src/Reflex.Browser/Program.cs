@@ -42,6 +42,9 @@ namespace Reflex.Browser
 				var assembly = loader.Load(filePath);
 				Log(assembly);
 
+				var definedTypes = assembly.DefinedTypes;
+				Log($"Defined types: {definedTypes?.Count()}");
+
 				Log("Getting type...");
 				var type = assembly.GetType(typename, true);
 				Log(type);

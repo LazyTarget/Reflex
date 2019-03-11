@@ -10,7 +10,8 @@ namespace Reflex.Browser
 	{
 		public Assembly Load(string filePath)
 		{
-			var assembly = Assembly.LoadFile(filePath);
+			//var assembly = Assembly.LoadFile(filePath);
+			var assembly = Assembly.LoadFrom(filePath);
 			return assembly;
 		}
 	}
