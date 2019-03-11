@@ -3,6 +3,8 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Reflex.Browser
 {
@@ -15,7 +17,21 @@ namespace Reflex.Browser
 		{
 			REFLEX_ASSEMBLY = typeof(Program).Assembly;
 
-			_logHelper = new LogHelper();
+			var services = BuildServices();
+			var serviceProvider = services.BuildServiceProvider(true);
+			_logHelper = serviceProvider.GetRequiredService<LogHelper>();
+		}
+
+		public static IServiceCollection BuildServices()
+		{
+			var services = new ServiceCollection();
+			services.AddLogging(
+				l =>
+					l.AddConsole());
+
+			services.AddSingleton<LogHelper>();
+
+			return services;
 		}
 
 		public static void Main(string[] args)
@@ -102,7 +118,7 @@ namespace Reflex.Browser
 
 		private static void Log(object message, bool format = true)
 		{
-			_logHelper.Log(message, format);
+			_logHelper.Log(message, format: format);
 		}
 
 		private static string GetInputArg(string message, Func<string, bool> validate = null)

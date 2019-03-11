@@ -2,19 +2,22 @@
 using System.Diagnostics;
 using System.IO;
 using System.Reflection;
+using Microsoft.Extensions.Logging;
 
 namespace Reflex.Browser
 {
 	public class LogHelper
 	{
-		public LogHelper()
-		{
+		private readonly ILogger _logger;
 
+		public LogHelper(ILoggerFactory loggerFactory)
+		{
+			_logger = loggerFactory.CreateLogger(GetType());
 		}
 
-		public void Log(object message, bool format = true)
+		public void Log(object message, LogLevel? logLevel = null, bool format = true)
 		{
-			object formatted = message;
+			string formatted;
 			if (message is Exception ex)
 			{
 				formatted = $"Exception to string: {ex}";
@@ -63,10 +66,25 @@ namespace Reflex.Browser
 					Log($"InnerException :END:");
 				}
 			}
+			else
+			{
+				formatted = message?.ToString();
+			}
 
 
-			Console.WriteLine(formatted);
-			Debug.WriteLine(formatted);
+			if (!string.IsNullOrWhiteSpace(formatted))
+			{
+				if (!logLevel.HasValue)
+				{
+					if (formatted.StartsWith("WARN"))
+						logLevel = LogLevel.Warning;
+					else if (formatted.StartsWith("ERR"))
+						logLevel = LogLevel.Error;
+					else
+						logLevel = LogLevel.Information;
+				}
+				_logger.Log(logLevel.Value, formatted, args: null);
+			}
 		}
 	}
 }
