@@ -17,15 +17,18 @@ namespace Reflex.Browser
 			object formatted = message;
 			if (message is Exception ex)
 			{
+				formatted = $"Exception to string: {ex}";
 				var ext = ex.GetType().Name;
 
 				if (ex is FileLoadException fileLoad)
 				{
 					Log($"{ext} at fileName: {fileLoad.FileName}");
+					Log($"FusionLog: {fileLoad.FusionLog}");
 				}
 				if (ex is FileNotFoundException fileNotFound)
 				{
 					Log($"{ext} at fileName: {fileNotFound.FileName}");
+					Log($"FusionLog: {fileNotFound.FusionLog}");
 				}
 				if (ex is ReflectionTypeLoadException reflectionTypeLoad)
 				{
@@ -40,6 +43,7 @@ namespace Reflex.Browser
 						Log($"LoadExc {i + 1}/{reflectionTypeLoad.LoaderExceptions.Length} :END:");
 					}
 				}
+
 
 				if (ex is AggregateException agg)
 				{
@@ -58,8 +62,6 @@ namespace Reflex.Browser
 					Log(ex.InnerException);
 					Log($"InnerException :END:");
 				}
-
-				formatted = $"Exception to string: {ex}";
 			}
 
 

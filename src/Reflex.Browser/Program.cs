@@ -28,6 +28,7 @@ namespace Reflex.Browser
 
 			var filePath = args?.Length > 0 ? args[0] : GetInputArg($"Enter {{FILEPATH}}: ");
 			var typename = args?.Length > 1 ? args[1] : GetInputArg($"Enter {{TYPENAME}}: ");
+			var methodnames = args?.Length > 2 ? args[2] : GetInputArg($"Enter {{METHODS}}: ");
 
 			try
 			{
@@ -69,6 +70,22 @@ namespace Reflex.Browser
 				if (instanceStr == type.FullName)
 					instanceStr = $"[{type.FullName}]";
 				Log(instanceStr);
+
+
+				if (!string.IsNullOrWhiteSpace(methodnames))
+				{
+					var methodsNames = methodnames.Split(',');
+					foreach (var name in methodsNames)
+					{
+						var method = type.GetMethod(name);
+						if (method == null)
+							throw new MissingMethodException(type.FullName, name);
+
+						Log($"Invoking method '{name}'... ");
+						var res = method.Invoke(instance, null);
+						Log($"Result :: {res}");
+					}
+				}
 			}
 			catch (Exception ex)
 			{
