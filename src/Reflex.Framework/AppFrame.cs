@@ -17,8 +17,8 @@ namespace Reflex.Framework
 		public virtual IConfigurationRoot SetupConfiguration()
 		{
 			var configurationBuilder = new ConfigurationBuilder()
-				//.AddJsonFile("appsettings.json", true)
-				//.AddEnvironmentVariables()
+				.AddJsonFile("appsettings.json", true)
+				.AddEnvironmentVariables()
 				.AddCommandLine(Environment.GetCommandLineArgs());
 
 			var configuration = configurationBuilder.Build();

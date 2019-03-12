@@ -41,7 +41,7 @@ namespace Reflex.Framework.Diagnostics
 		{
 			_logger.LogInformation($"Assembly resolve: '{args.Name}'");
 
-			var assembly = Assembly.Load(args.Name);
+			var assembly = Assembly.ReflectionOnlyLoad(args.Name);
 
 			return assembly;
 		}

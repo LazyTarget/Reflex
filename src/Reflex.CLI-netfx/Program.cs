@@ -31,6 +31,12 @@ namespace Reflex.CLI_netfx
 			{
 				logger.LogError(ex, "Error in Main()");
 			}
+
+			if (Environment.UserInteractive)
+			{
+				Console.WriteLine("Press [ENTER] to exit...");
+				Console.ReadLine();
+			}
 		}
 
 		static void Run(IServiceProvider provider)

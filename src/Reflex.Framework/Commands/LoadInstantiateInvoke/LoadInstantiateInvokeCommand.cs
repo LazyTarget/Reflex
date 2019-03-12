@@ -68,7 +68,7 @@ namespace Reflex.Framework.Commands.LoadInstantiateInvoke
 				Log(instanceStr);
 
 
-				//if (!string.IsNullOrWhiteSpace(methodnames))
+				if (_options?.Methods != null)
 				{
 					//var methodsNames = methodnames.Split(',');
 					foreach (var name in _options.Methods)
