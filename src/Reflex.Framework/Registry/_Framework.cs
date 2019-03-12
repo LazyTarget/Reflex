@@ -9,6 +9,7 @@ namespace Reflex.Framework.Registry
 	{
 		public void Register(IServiceCollection services)
 		{
+			new ConfigurationRegistry().Register(services);
 			new CoreRegistry().Register(services);
 			new CommandRegistry().Register(services);
 		}

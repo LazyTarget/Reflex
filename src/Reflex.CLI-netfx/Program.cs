@@ -22,6 +22,7 @@ namespace Reflex.CLI_netfx
 
 			try
 			{
+				AppFrame.Init(provider);
 				Run(provider);
 			}
 			catch (Exception ex)

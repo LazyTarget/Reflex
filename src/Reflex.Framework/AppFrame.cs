@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.Extensions.DependencyInjection;
+using Reflex.Framework.Diagnostics;
 
 namespace Reflex.Framework
 {
@@ -15,6 +16,7 @@ namespace Reflex.Framework
 		public IServiceCollection SetupServices(IServiceCollection services = null)
 		{
 			services = services ?? new ServiceCollection();
+
 			new Registry.Framework().Register(services);
 			return services;
 		}
@@ -23,6 +25,11 @@ namespace Reflex.Framework
 		{
 			var provider = services.BuildServiceProvider(true);
 			return provider;
+		}
+
+		public void Init(IServiceProvider provider)
+		{
+			provider.GetService<AssemblyListener>()?.Start();
 		}
 	}
 }
