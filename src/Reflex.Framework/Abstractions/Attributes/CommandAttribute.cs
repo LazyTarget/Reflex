@@ -9,7 +9,7 @@ namespace Reflex.Framework.Abstractions.Attributes
 	{
 		public CommandAttribute(string alias)
 		{
-
+			Alias = alias;
 		}
 
 		public string Alias { get; set; }
