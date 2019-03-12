@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Reflex.Framework;
@@ -16,7 +17,8 @@ namespace Reflex.CLI_netfx
 
 		static void Main(string[] args)
 		{
-			var services = AppFrame.SetupServices();
+			var configuration = AppFrame.SetupConfiguration();
+			var services = AppFrame.SetupServices(configuration);
 			var provider = AppFrame.SetupProvider(services);
 			var logger = provider.GetRequiredService<ILogger<Program>>();
 

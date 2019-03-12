@@ -15,7 +15,7 @@ namespace Reflex.Framework.Registry
 			
 		}
 
-		public void Register(IServiceCollection services)
+		public void Register(IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddLogging(l => l
 				.AddConsole()

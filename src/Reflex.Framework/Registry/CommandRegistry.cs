@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Reflex.Framework.Commands.LoadInstantiateInvoke;
@@ -14,10 +15,10 @@ namespace Reflex.Framework.Registry
 			
 		}
 
-		public void Register(IServiceCollection services)
+		public void Register(IServiceCollection services, IConfiguration configuration)
 		{
 			services.AddTransient<LoadInstantiateInvokeCommand>();
-			services.AddOptions<LoadInstantiateInvokeOptions>();
+			services.Configure<LoadInstantiateInvokeOptions>(configuration);
 		}
 	}
 }
